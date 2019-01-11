@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/websocket.js"></script>
+<script type="text/javascript" src="mainCtiWebSocketTest.js"></script>
+<script language="JavaScript">
+var formatTime=function(time){
+    var hours=parseInt(time/3600,10);
+    var minutes=parseInt(time%3600/60,10);
+    var seconds=time%60;
+    var str='';
+    
+    if(hours>=0&&hours<10){
+        str+='0'+hours+':';
+    }else{
+        str+=hours+':';
+    }
+    if(minutes>=0&&minutes<10){
+        str+='0'+minutes+':';
+    }else if(minutes>=10){
+        str+=minutes+':';
+    }
+    str+=seconds<10?'0'+seconds:seconds;
+    return str;
+};
+window.addEventListener("beforeunload",function(){
+	cti.print("logout<br/>");
+	cti.logout();
+})
+</script>
+</head>
+<body>
+<div class="dialog-ti">
+    <div id="tip-title">提醒</div>
+    <div class="list-wrap" id="tip-wrap">
+    </div>
+</div>
+<div id="mainFrameTable">
+  <ul id="layout-header" class="clearfix" style='height:55px;'></ul>
+  <div style="margin-top:50px;">
+    工  号：<input type="text" id="workerId" value="8888"/>
+	  分机号：<input type="text" id="slicNo" value="7002"/>
+	  代  理(生产_59.252.31.66)：<input type="text" id="proxyServer" value="192.168.10.229"/>
+  </div>
+  <div style="padding: 20px 0;">
+    <input style="cursor: pointer;" type="button" id="connect" value="连接服务器"/>
+    <input style="cursor: pointer;margin-left: 10px;" type="button" id="connect-down" value="断开服务器"/>
+  </div>
+  <div id="log" style="margin-top:20px;height:438px;overflow: hidden;overflow-y: auto;"></div>
+</div>
+<script>
+    $(function(){
+        $("#connect").click(function(){
+        var workerId=$("#workerId").val();
+        var slicNo=$("#slicNo").val();
+        var proxyServer=$("#proxyServer").val();
+         if(!!!slicNo || !!!proxyServer){
+             alert("分机号和代理必须填写");
+             return;
+         }
+        top.cti.setWorkerId(workerId);
+        top.cti.setExtNumber(slicNo);
+        top.cti.setProxyServer(proxyServer);
+        top.cti.connect();
+         })
+        $("#disconnect").click(function(){
+            top.cti.disconnect();
+        })
+        $("#connect-down").click(function(){
+            top.cti.logout();
+        })
+        
+    })
+</script>
+</body>
+</html>

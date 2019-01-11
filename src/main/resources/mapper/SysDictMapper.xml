@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunhu.modules.sysdict.dao.SysDictMapper" >
+	 <select id="searchSysDict" resultType="SysDict">
+ 		select * from SysDict where 1=1
+ 		<if test="type != '' and type != null">
+ 			and type in (${type})
+ 		</if>
+ 		and isUse=1 and parent>0  order by sort asc
+ 	</select>
+ 	 <select id="searchAllParent" resultType="SysDict">
+ 		select * from SysDict where parent=0 
+ 		and isUse=1 and isedit=0 order by id 
+ 	</select>
+ 	<insert id="insert" parameterType="SysDict" useGeneratedKeys="true" keyProperty="sysDict.id">
+ 		insert ignore into SysDict (type,value,label,sort,parent ) values 
+	 		(#{sysDict.type}, #{sysDict.value}, #{sysDict.label}, #{sysDict.sort}, #{sysDict.parent})
+ 	</insert>
+</mapper>

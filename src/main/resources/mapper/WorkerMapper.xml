@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.modules.worker.dao.WorkerMapper" >
+	 
+	 <update id="updateWorkerOnlineTime" >
+	 	update Worker set workerOnlineTime = NOW() where workerId = #{workerId}
+	 </update>
+	 
+	 <select id="login" resultType="Worker">
+		select 
+			*
+		from Worker where (workerName = #{username} or workerId=#{username} or no =#{username}) and psw = #{psw} and workerStatus <![CDATA[ <> ]]> 1
+	 </select>
+	 <select id="getWorker" resultType="Worker">
+		select 
+			*
+		from Worker where id=#{id}
+	 </select>
+	 <select id="getWorkerWorkerId" resultType="Worker">
+		select 
+			*
+		from Worker where workerId=#{workerId}
+	 </select>
+	  <insert id="addwoker" parameterType="Worker" useGeneratedKeys="true" keyProperty="id">
+		insert into Worker(workerId,workerName,lineNum,psw,createTime,deptId,no,email,phone) 
+		values(#{workerId},#{workerName},#{lineNum},#{psw},NOW(),#{deptId},#{no},#{email},#{phone})
+	 </insert>
+	 <select id="getInfoLineNum" resultType="Worker">
+		select 
+			*
+		from Worker where lineNum=#{lineNum}
+	 </select>
+	 <select id="selWorker" resultType="Worker">
+		select 
+			*
+		from Worker w where  workerStatus <![CDATA[ <> ]]> 1
+		<if test="deptId!=null and deptId !=''">
+			and w.deptId=#{deptId}
+		</if>
+		<if test="roleId!=null and roleId !=''">
+			and w.workerId in (select r.workerId from WorkerOfRole r where r.roleId=#{roleId})
+		</if>
+		<if test="no!=null and no !=''">
+			and w.no =#{no}
+		</if>
+	 </select>
+	 
+</mapper>

@@ -1,0 +1,40 @@
+before_script:
+  - echo "开始任务task脚本"
+
+after_script:
+  - pwd
+  - echo "执行任务task结束"
+
+      
+task1:
+    script:
+      - echo '这个是任务1 负责打包sit版本'
+      - pwd
+      #- npm install
+      #- mvn 清理并打包
+      - mvn clean compile package
+      #-停止resin服务
+      - /www/gjxxzx.yunhus.com/htdocs/springboot.sh stop
+      #-删除项目文件
+      - rm -rf /www/gjxxzx.yunhus.com/htdocs/gjxxzx.jar
+      #- rm -rf /webapp/crm
+      #-复制jar包到项目发布目录
+      - cp -r target/gjxxzx.jar /www/gjxxzx.yunhus.com/htdocs/
+      #-重新启动resin服务
+      - cd /www/gjxxzx.yunhus.com/htdocs/
+      - ./springboot.sh restart
+    # 需要缓存的文件夹 减少每次npm install时间
+    cache:
+      untracked: true
+
+    artifacts:
+      # 保存文件夹的文件夹名字
+      name: "$CI_COMMIT_REF_NAME"
+    #需要保存哪些文件
+      paths:
+        - multimedia/
+    
+    only:
+      - master
+    tags:
+      - public

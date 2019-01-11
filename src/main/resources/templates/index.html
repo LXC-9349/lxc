@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[crm]</title>
+</head>
+<body>
+<h4>This's [后台]</h4>
+<div th:if="${isadmin}">
+<div>开启sql log<a href="/log_debug" target="_blank">点击</a></div>
+<div>关闭sql log<a href="/log_warn" target="_blank">点击</a></div>
+<br/><br/><br/><br/>
+<form action="/deploy" enctype="multipart/form-data" method="post">
+src文件：<input type="file" name="files"/><br/>
+pom文件：<input type="file" name="files"/><br/>
+<input type="submit" value="提交部署">
+</form>
+
+</div>
+</body>
+</html>
