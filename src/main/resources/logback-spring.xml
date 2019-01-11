@@ -120,7 +120,6 @@
    <logger name="org.springframework"
      level="WARN" additivity="true">  
     <appender-ref ref="STDOUT"/>  
-
   </logger>
 
    <logger name="org.apache"
@@ -129,10 +128,6 @@
   </logger>
   
   <logger name="com.Application"
-     level="DEBUG" additivity="true">
-     <appender-ref ref="STDOUT"/>
-  </logger>
-   <logger name="com.controls.callcenter"
      level="DEBUG" additivity="true">
      <appender-ref ref="STDOUT"/>
   </logger>

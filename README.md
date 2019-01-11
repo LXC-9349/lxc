@@ -21,6 +21,7 @@
 ### easypoi,kaptcha,FastJson
 ### spring-mail
 ### Interceptors,Scheduled,WebListener,Webservice
-
+### 支持 Quartz 调度程序 未写实例
+### 支持netty 长连接 未写实例
 ##demo描述
 ###系统用户为Worker 客户MemberBaseInfo

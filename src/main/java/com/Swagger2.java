@@ -13,6 +13,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * swagger配置文件 
+ * @author DoubleLi
+ * @time 2019年1月11日
+ * 
+ */
 @Configuration
 @EnableSwagger2
 public class Swagger2 {
@@ -29,11 +35,11 @@ public class Swagger2 {
 
     private ApiInfo apiInfo() {
     	return new ApiInfo(
-                "TITLE",
-                "DESCIPRION",
-                "VERSION",
+                "springbootdemo api",
+                "接口描述",
+                "2.0",
                 "TERMS OF SERVICE URL",
-                new Contact("NAME","URL","EMAIL"),
+                new Contact("lxc","URL","lxc9349@163.com"),
                 "LICENSE",
                 "LICENSE URL",
                 Collections.emptyList()
