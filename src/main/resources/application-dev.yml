@@ -12,7 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: 
   redis:
-    host: 120.77.241.79
+    host: 192.168.10.242
     port: 6379
   jpa:
     show-sql: true

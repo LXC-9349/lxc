@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yunhu.modules.sysdict.dao.SysDictMapper" >
+<mapper namespace="com.modules.sysdict.dao.SysDictMapper" >
 	 <select id="searchSysDict" resultType="SysDict">
  		select * from SysDict where 1=1
  		<if test="type != '' and type != null">

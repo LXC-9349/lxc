@@ -103,7 +103,7 @@
        可是不能改为debug,info 因为改了之后会把 简单的 sql语句也一起打印了出来了.
        这种方式没有 mybatis-plus 配置文件的log-impl那种好  -->
   <logger name="com.modules"
-     level="WARN" additivity="true">
+     level="DEBUG" additivity="true">
      <appender-ref ref="STDOUT"/>
   </logger>
   <!--下面是为了控制将异常也给打印到控制台  -->
