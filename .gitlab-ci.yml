@@ -14,15 +14,15 @@ task1:
       #- mvn 清理并打包
       - mvn clean compile package
       #-停止resin服务
-      - /www/gjxxzx.yunhus.com/htdocs/springboot.sh stop
+      - /opt/springbootdemo/springboot-prod.sh stop
       #-删除项目文件
-      - rm -rf /www/gjxxzx.yunhus.com/htdocs/gjxxzx.jar
+      - rm -rf /opt/springbootdemo/springbootdemo.jar
       #- rm -rf /webapp/crm
       #-复制jar包到项目发布目录
-      - cp -r target/gjxxzx.jar /www/gjxxzx.yunhus.com/htdocs/
+      - cp -r target/springbootdemo.jar /opt/springbootdemo/
       #-重新启动resin服务
-      - cd /www/gjxxzx.yunhus.com/htdocs/
-      - ./springboot.sh restart
+      - cd /opt/springbootdemo/
+      - ./springboot-prod.sh restart
     # 需要缓存的文件夹 减少每次npm install时间
     cache:
       untracked: true
