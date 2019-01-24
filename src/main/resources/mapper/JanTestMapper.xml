@@ -48,16 +48,14 @@
         </where>
     </select>
 
-    <insert id="insert" parameterType="JanTest" useGeneratedKeys="true" keyProperty="janTest.id">
+    <insert id="insert" parameterType="JanTest" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO JanTest(
-            id,
-            name,
+                        name,
             craeteTime,
             isUse
         )
         VALUES (
-            #{id},
-            #{name},
+                        #{name},
             #{craeteTime},
             #{isUse}
         )
@@ -65,8 +63,7 @@
 
     <insert id="insertBatch">
         INSERT INTO JanTest(
-            id,
-            name,
+                        name,
             craeteTime,
             isUse
         )

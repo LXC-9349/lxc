@@ -35,7 +35,7 @@ public class Swagger2 {
     	return new ApiInfo(
                 "springbootdemo api",
                 "接口描述",
-                "2.0",
+                "1.0",
                 "TERMS OF SERVICE URL",
                 new Contact("lxc","URL","lxc9349@163.com"),
                 "LICENSE",

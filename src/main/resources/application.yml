@@ -6,7 +6,7 @@ spring:
 login_psw: 123456
 #session过期时间
 session_invalid_time: 2880
-password_token: YunHuKejiAjbk
+password_token: mmmdddd5555
 #第三方推送token
 push_token: yh2018$427a035c3efe4d69a91275c4b096f03c
 #scoket信息token

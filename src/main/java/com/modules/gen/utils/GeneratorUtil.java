@@ -292,6 +292,9 @@ public class GeneratorUtil {
             if (i != 0) {
                 sb.append("            ");
             }
+            if (infos.get(i).isPrimaryKey()) {
+                continue;
+            }
             sb.append(infos.get(i).getColumnName() + ",\n");
         }
         return sb.toString().substring(0, sb.toString().length() - 2);
@@ -305,6 +308,9 @@ public class GeneratorUtil {
         for (int i = 0; i < infos.size(); i++) {
             if (i != 0) {
                 sb.append("            ");
+            }
+            if (infos.get(i).isPrimaryKey()) {
+                continue;
             }
             sb.append("#{").append(infos.get(i).getPropertyName()).append("},\n");
         }

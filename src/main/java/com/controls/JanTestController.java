@@ -25,6 +25,7 @@ import com.commons.utils.PageMode;
 import com.commons.utils.RequestObjectUtil;
 import com.interceptor.BaseCurrentWorkerAware;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +37,7 @@ import io.swagger.annotations.ApiResponses;
  * Author DoubleLi
  * Date  2019-01-24
  */
+@Api(tags = "新建controls")
 @RestController
 @RequestMapping(value = "/api/janTest")
 public class JanTestController extends BaseCurrentWorkerAware  {
@@ -74,7 +76,7 @@ public class JanTestController extends BaseCurrentWorkerAware  {
 
     @ApiOperation("详情")
 	@ApiImplicitParams({
-			@ApiImplicitParam(name = "id", value = "Id", required = true, dataType = "Integer", paramType = "query") })
+			@ApiImplicitParam(name = "id", value = "Id", required = true, dataType = "int") })
 	@ApiResponses({ @ApiResponse(code = 100000, message = "请求成功"), @ApiResponse(code = 100001, message = "请求失败"),
 			@ApiResponse(code = 100003, message = "参数为空"), @ApiResponse(code = 100004, message = "未登录"),
 			@ApiResponse(code = 100005, message = "未设置可显字段"), @ApiResponse(code = 100008, message = "非法请求") })

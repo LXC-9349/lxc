@@ -42,7 +42,7 @@
         </where>
     </select>
 
-    <insert id="insert" parameterType="${ClassName}" useGeneratedKeys="true" keyProperty="${EntityName}.${PrimaryKey}">
+    <insert id="insert" parameterType="${ClassName}" useGeneratedKeys="true" keyProperty="${PrimaryKey}">
         INSERT INTO ${TableName}(
             ${InsertProperties}
         )

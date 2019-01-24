@@ -5,8 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.commons.Constants;
-
 public class Md5 {
 
 	public static String getMD5ofStr(String origString) {
@@ -155,8 +153,8 @@ public class Md5 {
 	}
 
 	public static void main(String[] args) {
-		System.err.println(encrpyt("123456", Constants.PASSWORD_TOKEN));
-		System.err.println(decrpyt("UARSAldQ3949ba59abbe56e057f20f88", Constants.PASSWORD_TOKEN));
+		System.err.println(encrpyt("123456", "mmmdddd5555"));
+		System.err.println(decrpyt("UARSAldQ3949ba59abbe56e057f20f88", "mmmdddd5555"));
 		
 	}
 
