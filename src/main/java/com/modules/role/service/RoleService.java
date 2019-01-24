@@ -3,68 +3,63 @@ package com.modules.role.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.modules.base.dao.BaseMapper;
 import com.modules.role.bean.Role;
+import com.modules.role.mapper.RoleMapper;
 
-/**
- * 角色名管理
- * @author DZH
- *
- */
-public interface RoleService {
+@Service 
+public class RoleService {
 
-	/**
-	 * 根据角色ID获取角色
-	 * @param groupId
-	 * @return
-	 */
-	Role getRoleById(Integer roleId);
-
+	@Autowired
+	private RoleMapper roleMapper;
+	@Autowired
+	private BaseMapper baseMapper;
 	
-	/**
-	 * 以下方法源自原项目。。。
-	 * @param roleId
-	 * @return
-	 */
-	List<String> getWorkersbyRoleId(Integer roleId);
 	
+	public Role getRoleById(Integer roleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	
-	/**
-	 * 根据workerId删除员工所拥有的所有角色
-	 * @param workerId
-	 * @param companyId
-	 */
-	Boolean deleteWorkerOfRoleByWorkerId(String workerId);
+	public List<String> getWorkersbyRoleId(Integer roleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Boolean deleteWorkerOfRoleByWorkerId(String workerId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-	/**
-	 * 根据员工编号获取该员工所有的角色ID
-	 * @param workerId
-	 * @param companyId
-	 * @return
-	 */
-	List<Map<String,Object>> getRoleIdByWorkerId(String workerId);
+	public List<Map<String,Object>> getRoleIdByWorkerId(String workerId) {
+		return roleMapper.getRoleIdByWorkerId(workerId);
+	}
 
-	List<Role> getRoleAll();
+	public List<Role> getRoleAll() {
+		return roleMapper.getRoleAll();
+	}
 
+	public Boolean addRoleByWorker(String workerId, String roleId) {
+		if(StringUtils.isBlank(roleId))
+			return false;
+		StringBuffer sbsql=new StringBuffer("insert ignore into WorkerOfRole (workerId,roleId) values");
+		for (String r : roleId.split(",")) {
+			sbsql.append("('");
+			sbsql.append(workerId);
+			sbsql.append("','").append(r);
+			sbsql.append("'),");
+		}
+		return baseMapper.insert(sbsql.substring(0,sbsql.length()-1))>0;
+	}
 
-	/**
-	 * 添加用户角色
-	 * @param workerId
-	 * @param roleId
-	 * @return
-	 * @time 2018年11月16日
-	 * @author DoubleLi
-	 */
-	Boolean addRoleByWorker(String workerId, String roleId);
-
-
-	/**
-	 * 更新角色
-	 * @param workerId
-	 * @param roleId
-	 * @return
-	 * @time 2018年11月16日
-	 * @author DoubleLi
-	 */
-	boolean updateWorkerRole(String workerId, String roleId);
+	public boolean updateWorkerRole(String workerId, String roleId) {
+		if(StringUtils.isBlank(roleId))
+			return false;
+		baseMapper.del("delete from WorkerOfRole where workerId='"+workerId+"'");
+		return addRoleByWorker(workerId,roleId);
+	}
+ 
 }
