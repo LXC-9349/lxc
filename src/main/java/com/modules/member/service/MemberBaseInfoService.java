@@ -63,7 +63,7 @@ public class MemberBaseInfoService {
 						"mobile,field20", memberBaseInfo.getMobile(), memberBaseInfo.getField20());
 				return baseMapper.update(updateSql) > 0;
 			}
-			Boolean flag = baseMapper.insertId(memberBaseInfo) > 0;
+			Boolean flag = baseMapper.insert(PojoUtils.getInsertSQL(MemberBaseInfo.class.getSimpleName(), dataMap, "memberId")) > 0;
 			return flag;
 		} else {// 更新
 			final String updateSql = PojoUtils.getUpdateSQL(MemberBaseInfo.class.getSimpleName(), dataMap, "memberId",

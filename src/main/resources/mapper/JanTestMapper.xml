@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.modules.jantest.dao.JanTestMapper">
+
+    <resultMap id="JanTestResultMap" type="com.modules.jantest.bean.JanTest">
+        <id column="id" property="id"/> 
+        <result column="name" property="name"/> 
+        <result column="craeteTime" property="craeteTime"/> 
+        <result column="isUse" property="isUse"/> 
+
+        
+        
+    </resultMap>
+
+    <sql id="JanTestColumns">
+        JanTest.id AS "id",
+        JanTest.name AS "name",
+        JanTest.craeteTime AS "craeteTime",
+        JanTest.isUse AS "isUse"
+    </sql>
+
+    <sql id="JanTestJoins">
+        
+    </sql>
+
+    <select id="get" resultMap="JanTestResultMap">
+        SELECT
+        <include refid="JanTestColumns" />
+        FROM JanTest <include refid="JanTestJoins" />
+        <where>
+        JanTest.id = #{id}
+        </where>
+    </select>
+
+    <select id="findList" resultMap="JanTestResultMap">
+        SELECT
+        <include refid="JanTestColumns" />
+        FROM JanTest <include refid="JanTestJoins" />
+        <where>
+        </where>
+    </select>
+
+    <select id="findAllList" resultMap="JanTestResultMap">
+        SELECT
+        <include refid="JanTestColumns" />
+        FROM JanTest <include refid="JanTestJoins" />
+        <where>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="JanTest" useGeneratedKeys="true" keyProperty="janTest.id">
+        INSERT INTO JanTest(
+            id,
+            name,
+            craeteTime,
+            isUse
+        )
+        VALUES (
+            #{id},
+            #{name},
+            #{craeteTime},
+            #{isUse}
+        )
+    </insert>
+
+    <insert id="insertBatch">
+        INSERT INTO JanTest(
+            id,
+            name,
+            craeteTime,
+            isUse
+        )
+        VALUES
+        <foreach collection ="list" item="janTest" separator =",">
+        (
+            #{janTest.id},
+            #{janTest.name},
+            #{janTest.craeteTime},
+            #{janTest.isUse}
+        )
+        </foreach>
+    </insert>
+
+    <update id="update">
+        UPDATE JanTest SET
+        id = #{id},
+        name = #{name},
+        craeteTime = #{craeteTime},
+        isUse = #{isUse}
+        WHERE id = #{id}
+    </update>
+
+    <update id="delete">
+        DELETE FROM JanTest
+        WHERE id = #{id}
+    </update>
+
+</mapper>

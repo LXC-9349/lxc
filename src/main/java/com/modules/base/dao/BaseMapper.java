@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.context.annotation.Scope;
 
-import com.modules.member.bean.MemberBaseInfo;
-import com.modules.workorder.bean.WorkOrder;
-
 /**
  * 全局增删改查
  * @author DoubleLi
@@ -42,21 +39,4 @@ public interface BaseMapper{
 	 */
 	List<Map<String, Object>> select(@Param("sql")String sql);
 	
-	/**
-	 * 返回新增id
-	 * @param sql
-	 * @param baseBean
-	 * @return
-	 * @time 2018年11月26日
-	 * @author DoubleLi
-	 */
-	Integer insertId(@Param("memberBaseInfo")MemberBaseInfo memberBaseInfo);
-	/**
-	 * 新增工单
-	 * @param insertSql
-	 * @return
-	 * @time 2018年12月6日
-	 * @author DoubleLi
-	 */
-	Integer insertWorkOrder(@Param("workOrder")WorkOrder workOrder);
 }

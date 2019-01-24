@@ -1,4 +1,4 @@
-package com.commons.utils;
+package com.commons.config;
 import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;

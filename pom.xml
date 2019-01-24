@@ -157,6 +157,11 @@
         <groupId>io.netty</groupId>
         <artifactId>netty-all</artifactId>
     	</dependency>
+    	 <!-- freemarker 用于代码生成 -->
+    	<dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
 		<!-- 自写lib -->
 		<!-- sms -->
 		<!-- <dependency>

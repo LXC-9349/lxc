@@ -17,6 +17,7 @@
 ### http://ip:port/swagger-ui.html
 
 ##项目用到技术
+### 代码生成 运行com.modules.gen.application.Exec
 ### swagger
 ### easypoi,kaptcha,FastJson
 ### spring-mail

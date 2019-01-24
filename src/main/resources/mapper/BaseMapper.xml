@@ -19,12 +19,4 @@
 	  <select id="selectMap" resultType="java.util.HashMap">
 	 		${sql}
 	 </select>
-	 <insert id="insertId" parameterType="MemberBaseInfo" useGeneratedKeys="true" keyProperty="memberBaseInfo.memberId">
- 		insert ignore into MemberBaseInfo (workerId, createTime, mobile, memberName, mdeptName,field21,field20,field27,field5,field24,field37,housePhone,field23) values 
-	 		(#{memberBaseInfo.workerId}, #{memberBaseInfo.createTime}, #{memberBaseInfo.mobile}, #{memberBaseInfo.memberName}, #{memberBaseInfo.mdeptName}, #{memberBaseInfo.field21},#{memberBaseInfo.field20},#{memberBaseInfo.field27},#{memberBaseInfo.field5},#{memberBaseInfo.field24},#{memberBaseInfo.field37},#{memberBaseInfo.housePhone},#{memberBaseInfo.field23})
- 	</insert>
- 	<insert id="insertWorkOrder" parameterType="WorkOrder" useGeneratedKeys="true" keyProperty="workOrder.id">
- 		INSERT INTO `WorkOrder`(faultPhone,memberId,no,type,status,dbusinesstype,ddept,phone,name,dhjtype,contact,contactPhone,email,installAddress,phonePermission,phoneBusiness,settleMoney,monthRent,dispatchName,dispatchTime,dispatchRemake,installMoney,relocationAddress,relocationMoney,faultMessage,faultMoney,withdrawAddress,withdrawMoney,dhjpro,itModel,itFaulePositioning,itClass,itRoom,updateTime,workerId,acceptWorker,jw,xw,createTime) 
- 		VALUES (#{workOrder.faultPhone},#{workOrder.memberId},#{workOrder.no},#{workOrder.type},#{workOrder.status},#{workOrder.dbusinesstype},#{workOrder.ddept},#{workOrder.phone},#{workOrder.name},#{workOrder.dhjtype},#{workOrder.contact},#{workOrder.contactPhone},#{workOrder.email},#{workOrder.installAddress},#{workOrder.phonePermission},#{workOrder.phoneBusiness},#{workOrder.settleMoney},#{workOrder.monthRent},#{workOrder.dispatchName},#{workOrder.dispatchTime},#{workOrder.dispatchRemake},#{workOrder.installMoney},#{workOrder.relocationAddress},#{workOrder.relocationMoney},#{workOrder.faultMessage},#{workOrder.faultMoney},#{workOrder.withdrawAddress},#{workOrder.withdrawMoney},#{workOrder.dhjpro},#{workOrder.itModel},#{workOrder.itFaulePositioning},#{workOrder.itClass},#{workOrder.itRoom},#{workOrder.updateTime},#{workOrder.workerId},#{workOrder.acceptWorker},#{workOrder.jw},#{workOrder.xw},#{workOrder.createTime});
- 	</insert>
 </mapper>

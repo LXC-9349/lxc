@@ -20,10 +20,7 @@ import com.modules.base.dao.BaseMapper;
 import com.modules.mail.bean.EmailRecord;
 import com.modules.mail.util.MailUtils;
 import com.modules.member.bean.MemberBaseInfo;
-import com.modules.member.service.MemberBaseInfoService;
-import com.modules.sysdict.service.SysDictService;
 import com.modules.worker.bean.Worker;
-import com.modules.workorder.service.WorkOrderService;
 
 /**
  * 邮件服务
@@ -38,12 +35,6 @@ public class EmailRecordService {
 	private MailUtils mailUtils;
 	@Autowired
 	private BaseMapper baseMapper;
-	@Autowired
-	private WorkOrderService workOrderService;
-	@Autowired
-	private SysDictService sysDictService;
-	@Autowired
-	private MemberBaseInfoService memberBaseInfoService;
 	@Value("${fromMail.address}")
 	private String from;
 
@@ -133,18 +124,7 @@ public class EmailRecordService {
 					params.put("name", to.getWorkerName());
 					String sub_u=null;
 					if("AccpetEmail".equals(temp)){
-						Integer id=(Integer) parm[0];
-						Map<String, Object> map=workOrderService.searchInfo(id);
-						String type=map.get("type").toString();
-						Integer memberid=(Integer) map.get("memberId");
-						Map<String, Object> member = memberBaseInfoService.searchInfo(memberid,1);
-						sub_u="提醒:["+sysDictService.getLabel("wotype", type)+"]-["+sysDictService.getLabel("65".equals(type)?"wobusiness":"woitbus", map.get("dbusinesstype").toString())+"]已经派发给您,请及时处理";
-						params.put("office", member.get("office"));
-						params.put("mobile", member.get("mobile"));
-						params.put("name1", member.get("memberName"));
-						params.put("danwei", member.get("danweiShow"));
-						params.put("shijian", map.get("dispatchTimeShow"));
-						params.put("remark", map.get("dispatchRemake"));
+						
 					}
 					EmailRecord e = new EmailRecord();
 					String html = mailUtils.render(temp, params);
