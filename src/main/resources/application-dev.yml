@@ -1,6 +1,6 @@
 #测试环境
 server:  
-  port: 8123
+  port: 80
   session-timeout: 30  
   tomcat.max-threads: 0  
   tomcat.uri-encoding: UTF-8 
@@ -24,6 +24,9 @@ spring:
   jackson:
         time-zone: GMT+8
         date-format: yyyy-MM-dd HH:mm:ss
+  http: 
+    encoding:
+      force: true
 mybatis:
   typeAliasesPackage: com.modules
   mapperLocations: classpath*:mapper/*.xml
