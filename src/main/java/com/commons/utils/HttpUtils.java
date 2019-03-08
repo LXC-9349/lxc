@@ -23,6 +23,8 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -31,15 +33,15 @@ import org.apache.http.util.EntityUtils;
 public class HttpUtils {
 
 	private static final Log logger = LogFactory.getLog(HttpUtils.class);
-	private SSLClient client = null;
+	private CloseableHttpClient client = null;
 	private static final int SOCKET_TIMEOUT = 3000;
 	private static final int CONNECT_TIMEOUT = 3000;
 	
 	private HttpUtils() {
 		try {
-			client = new SSLClient();
+			client = HttpClients.createDefault();
 		} catch (Exception e) {
-			logger.error("init SSLClient failed", e);
+			logger.error("init SSLClient CloseableHttpClient  failed", e);
 		}
 	}
 	
