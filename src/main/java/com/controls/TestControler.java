@@ -1,9 +1,12 @@
 package com.controls;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.LoggerContext;
+import com.commons.annontations.NoLogin;
+import com.commons.utils.FileUtils;
+import com.interceptor.BaseCurrentWorkerAware;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -12,14 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.commons.annontations.NoLogin;
-import com.commons.utils.FileUtils;
-import com.interceptor.BaseCurrentWorkerAware;
-
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.LoggerContext;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @Api(tags = "开发测试配置")
 @Controller
@@ -62,6 +59,19 @@ public class TestControler extends BaseCurrentWorkerAware {
 		loggerContext.getLogger("com.modules").setLevel(Level.WARN);
 		return "关闭成功";
 	}
+
+	/*@Reference
+	private UserDubboService userDubboService;
+
+	@ApiOperation("测试dubbo")
+	@GetMapping(value = "/dubbo", produces = "application/json;charset=utf-8")
+	@NoLogin
+	@ResponseBody
+	public ApiResult dubbo() {
+		ApiResult apiResult=new ApiResult();
+		apiResult.setData(userDubboService.select("select * from Worker"));
+		return apiResult;
+	}*/
 
 	@ApiOperation("部署")
 	@PostMapping(value = "/deploy", produces = "application/json;charset=utf-8")

@@ -123,9 +123,9 @@ public class MemberBaseInfoService {
 		pageMode.setSqlWhere("m.isUse <> 0");
 		// 名称
 		if (StringUtils.isNotBlank(memberBaseInfoPojo.getName())) {
-			pageMode.setSqlWhere("(m.memberName like '%" + memberBaseInfoPojo.getName()
-					+ "%' or  GET_FIRST_PINYIN_CHAR(m.memberName) ='" + memberBaseInfoPojo.getName().toUpperCase()
-					+ "' or upper(m.field21) like '%" + memberBaseInfoPojo.getName().toUpperCase() + "%')");
+			pageMode.setSqlWhere("(m.memberName like '%" + pageMode.noSqlInjection(memberBaseInfoPojo.getName())
+					+ "%' or  GET_FIRST_PINYIN_CHAR(m.memberName) ='" + pageMode.noSqlInjection(memberBaseInfoPojo.getName().toUpperCase())
+					+ "' or upper(m.field21) like '%" + pageMode.noSqlInjection(memberBaseInfoPojo.getName().toUpperCase()) + "%')");
 		}
 		// 工单时间
 		if (StringUtils.isNoneBlank(memberBaseInfoPojo.getWorkOrderTimeA())) {
@@ -137,7 +137,7 @@ public class MemberBaseInfoService {
 		}
 		// 手机号码
 		if (StringUtils.isNoneBlank(memberBaseInfoPojo.getPhone())) {
-			pageMode.setSqlWhere("(m.mobile like '%" + memberBaseInfoPojo.getPhone() + "%' or m.field20 like '%"
+			pageMode.setSqlWhere("(m.mobile like '%" + pageMode.noSqlInjection(memberBaseInfoPojo.getPhone()) + "%' or m.field20 like '%"
 					+ memberBaseInfoPojo.getPhone() + "%')");
 		}
 		// 用户部门
@@ -170,7 +170,7 @@ public class MemberBaseInfoService {
 		}
 		// 座机
 		if (StringUtils.isNoneBlank(memberBaseInfoPojo.getField20())) {
-			pageMode.setSqlWhere("m.field20  like '%" + memberBaseInfoPojo.getField20() + "%'");
+			pageMode.setSqlWhere("m.field20  like '%" + pageMode.noSqlInjection(memberBaseInfoPojo.getField20()) + "%'");
 		}
 		/* where end */
 		pageMode.setSqlFrom(

@@ -32,7 +32,7 @@ public interface BaseMapper{
 
 	/**
 	 * sql数据
-	 * @param mysqlLimit
+	 * @param sql
 	 * @return
 	 * @time 2018年8月10日
 	 * @author DoubleLi

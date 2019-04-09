@@ -1,16 +1,16 @@
 #线上环境
-server:  
+server:
   port: 8123
-  session-timeout: 30  
-  tomcat.max-threads: 0  
-  tomcat.uri-encoding: UTF-8 
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
 spring:
   datasource:
     url: jdbc:mysql://ip/springbootdemo?characterEncoding=utf8&useSSL=true&tinyInt1isBit=false
     username: springbootdemo
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-    type: 
+    type:
   redis:
     host: 127.0.0.1
     port: 6379
@@ -18,12 +18,23 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-    properties: 
+    properties:
       hibernate:
-        dialect : org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
   jackson:
-        time-zone: GMT+8
-        date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+#  dubbo:
+#    server: true
+#    application:
+#      name: springbootdemo
+#    registry:
+#      address: zookeeper://192.168.10.231:2181
+#    protocol:
+#      name: springbootdemo
+#      port: 20889
+#    scan:
+#      basePackages: com.dubbo.service
 mybatis:
   typeAliasesPackage: com.modules
   mapperLocations: classpath*:mapper/*.xml

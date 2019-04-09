@@ -6,9 +6,9 @@ server:
   tomcat.uri-encoding: UTF-8 
 spring:
   datasource:
-    url: jdbc:mysql://120.77.241.79:3306/springbootdemo?characterEncoding=utf8&useSSL=true&tinyInt1isBit=false
-    username: springbootdemo
-    password: 123456
+    url: jdbc:mysql://192.168.10.231:3306/springbootdemo?characterEncoding=utf8&useSSL=true&tinyInt1isBit=false
+    username: crm
+    password: crm123123
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: 
   redis:
@@ -27,6 +27,17 @@ spring:
   http: 
     encoding:
       force: true
+#  dubbo:
+#    server: true
+#    application:
+#      name: springbootdemo
+#    registry:
+#      address: zookeeper://192.168.10.231:2181
+#    protocol:
+#      name: springbootdemo
+#      port: 20889
+#    scan:
+#      basePackages: com.dubbo.service
 mybatis:
   typeAliasesPackage: com.modules
   mapperLocations: classpath*:mapper/*.xml

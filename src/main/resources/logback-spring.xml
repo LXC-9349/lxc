@@ -4,7 +4,7 @@
    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">   
     <!-- encoder 默认配置为PatternLayoutEncoder -->   
     <encoder>   
-      <pattern>[gjxxzx]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>  
+      <pattern>[log]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>  
       <charset>utf-8</charset> 
     </encoder>   
   </appender>   
@@ -38,7 +38,7 @@
         <append>true</append>
         <!-- 日志文件的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[guns]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>[log]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
             <charset>utf-8</charset>
         </encoder>
         <!-- 此日志文件只记录error级别的 -->
@@ -53,7 +53,7 @@
     <appender name="FILWARN"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
-        <file>/opt/springbootdemo/logs/gjxxzx.log</file>
+        <file>/opt/springbootdemo/logs/springbootdemo.log</file>
 
         <!-- 日志记录器的滚动策略，按日期，按大小记录:这里是每天产生一个文件   -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -61,7 +61,7 @@
             <!-- 归档的日志文件的路径，例如今天是2013-12-21日志，当前写的日志文件路径为file节点指定，可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。 
                 而2013-12-21的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
                 <!--设置日志命名模式-->
-            <fileNamePattern>/opt/springbootdemo/logs/gjxxzx-%d{yyyy-MM-dd}.%i.log
+            <fileNamePattern>/opt/springbootdemo/logs/springbootdemo-%d{yyyy-MM-dd}.%i.log
             </fileNamePattern>
 
             <!-- 除按日志记录之外，还配置了日志文件不能超过10M，若超过10M，日志文件会以索引0开始， 命名日志文件，例如log-error-2013-12-21.0.log -->
@@ -78,7 +78,7 @@
         <append>true</append>
         <!-- 日志文件的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[gjxxzx]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>[springbootdemo]  %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
             <charset>utf-8</charset>
         </encoder>
         <!-- 此日志文件只记录warn级别的 -->
