@@ -98,10 +98,6 @@ public class SmsRecordService {
     /**
      * 给员工发送邮件
      *
-     * @param tolist
-     * @param sub
-     * @param content
-     * @param ml
      * @time 2019年1月2日
      * @author DoubleLi
      */

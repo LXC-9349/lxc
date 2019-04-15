@@ -22,13 +22,13 @@
 ### easypoi(pdf操作),kaptcha（验证码生成）
 ### spring-mail(邮件发送)
 ### Interceptors,Scheduled,WebListener,Webservice
-### 支持 Quartz 调度程序 未写实例
-### 支持netty 长连接 未写实例
+### Quartz
+### netty
 ### dubbo注释放开,配置环境就能用 demo在TestControler(/dubbo)
 ##demo描述
 ###系统用户为Worker 客户MemberBaseInfo
 
-## 代码生成 
+## 代码生成 配置表生成所有代码
 ### 运行com.modules.gen.application.Exec
 
 ## 项目描述
