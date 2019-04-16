@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/sms")
 @RestController
 public class SmsController extends BaseCurrentWorkerAware {
-	private static final Logger log = LoggerFactory.getLogger(WorkerControler.class);
+	private static final Logger log = LoggerFactory.getLogger(WorkerController.class);
 	@Autowired
 	private SmsRecordService smsRecordService;
 	@Autowired

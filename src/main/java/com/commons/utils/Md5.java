@@ -4,7 +4,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.lang3.StringUtils;
-
+/**
+ *
+ * 功能描述: 
+ * @author: DoubleLi
+ * @date: 2019/4/16 14:58
+ */
 public class Md5 {
 
 	public static String getMD5ofStr(String origString) {

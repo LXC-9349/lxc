@@ -28,8 +28,12 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-
-
+/**
+ *
+ * 功能描述: http
+ * @author: DoubleLi
+ * @date: 2019/4/16 14:53
+ */
 public class HttpUtils {
 
 	private static final Log logger = LogFactory.getLog(HttpUtils.class);
@@ -73,9 +77,10 @@ public class HttpUtils {
 		String responseContent = null;
 		try {
 			HttpPost httppost = new HttpPost(url);
+			/** 设置请求和传输超时时间*/
 			RequestConfig requestConfig = RequestConfig.custom()
 					.setConnectTimeout(connectTimeOut)
-					.setSocketTimeout(socketTimeOut).build();// 设置请求和传输超时时间
+					.setSocketTimeout(socketTimeOut).build();
 			httppost.setConfig(requestConfig);
 
 			StringEntity myEntity = new StringEntity(param, "UTF-8");
