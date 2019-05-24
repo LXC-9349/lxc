@@ -4,6 +4,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.interceptor.SecurityInterceptor;
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.*"})
 @ServletComponentScan
-@EnableSwagger2
+@EnableSwagger2Doc
 @EnableScheduling
 //@EnableDubboConfiguration
 public class Application extends SpringBootServletInitializer implements WebMvcConfigurer {
