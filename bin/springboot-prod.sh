@@ -167,8 +167,7 @@ case $1 in
           restart)  restart;;    
           status)  status;;     
           dump)  dump;;
-          log)  log;; 
-          log)  log;; 
+          log)  log;;
           deploy) deploy;;        
               *)  echo "require start 启动|stop 停止|restart 重启|status 状态|dump 生成jvm dump|log 实时日志|deploy 一键部署"  ;;    
 esac   
